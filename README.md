@@ -17,26 +17,24 @@ The verifier enforces strict v1 safe-mode invariants:
 ## Install
 
 ```bash
-pip install .
+python3 -m pip install ".[dev]"
 ```
 
-## Test
+## Test (pytest workflow)
 
 ```bash
-PYTHONPATH=src python3 -m unittest discover -s tests -p "test_*.py"
+PYTHONPATH=src python3 -m pytest
 ```
 
-## Coverage
-
-Install coverage:
+## Lint
 
 ```bash
-python3 -m pip install coverage
+python3 -m ruff check .
 ```
 
-Run coverage for the package:
+## Build + package checks
 
 ```bash
-PYTHONPATH=src python3 -m coverage run --source=src/x402_xrpl_adapter -m unittest discover -s tests -p "test_*.py"
-PYTHONPATH=src python3 -m coverage report -m
+python3 -m build
+python3 -m twine check dist/*
 ```

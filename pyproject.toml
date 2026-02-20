@@ -13,4 +13,25 @@ authors = [{ name = "Naor Yuval" }]
 dependencies = []
 
 [project.optional-dependencies]
-dev = []
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.6.0",
+  "build>=1.2.0",
+  "twine>=5.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/x402_xrpl_adapter"]
