@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "x402-xrpl-settlement-adapter-py"
+version = "0.1.0"
+description = "Strict x402 v2 settlement verifier for XRPL (Python port)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Naor Yuval" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
