@@ -4,10 +4,6 @@ Strict **server-side settlement verifier** for **x402 v2 payments on XRPL**.
 
 This package validates presigned XRPL `Payment` transactions and turns them into deterministic, replay-safe x402 settlement receipts for HTTP 402 flows.
 
-This repository is the Python port of the TypeScript XRPL adapter in
-[`naory/x402-xrpl`](https://github.com/naory/x402-xrpl). Both implementations
-share the same canonical conformance test vectors.
-
 Designed for backend services that require strong guarantees around:
 
 - On-ledger settlement verification
@@ -54,9 +50,10 @@ Minimal by design:
 - `InMemoryReplayStore`
 - `SettlementVerificationError`
 
-Optional helper:
+Optional helpers (stdlib-only; core stays dependency-free):
 
-- `x402_xrpl_adapter.rpc.XrplJsonRpcClient`
+- `fetch_transaction_jsonrpc(network_url, tx_hash)` — minimal RPC fetch
+- `x402_xrpl_adapter.rpc.XrplJsonRpcClient` — wrapper for `verify_settlement` callback
 
 ---
 
@@ -141,7 +138,18 @@ Second call with the same `paymentId` + `txHash` returns idempotent success.
 
 ## Optional XRPL JSON-RPC Helper
 
-You can use the bundled minimal helper and pass it directly as the callback:
+Minimal stdlib-only helpers. Core verifier stays dependency-free.
+
+**Function** — `fetch_transaction_jsonrpc(network_url, tx_hash)`:
+
+```python
+from x402_xrpl_adapter import fetch_transaction_jsonrpc
+
+tx = fetch_transaction_jsonrpc("https://s.altnet.rippletest.net:51234", "ABCDEF123...")
+# returns dict or None
+```
+
+**Class** — `XrplJsonRpcClient` for use as `verify_settlement` callback:
 
 ```python
 from x402_xrpl_adapter.rpc import XrplJsonRpcClient

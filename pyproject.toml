@@ -5,12 +5,52 @@ build-backend = "hatchling.build"
 [project]
 name = "x402-xrpl-settlement-adapter-py"
 version = "0.1.0"
-description = "Strict x402 v2 settlement verifier for XRPL (Python port)"
+description = "Server-side settlement verifier for x402 v2 on XRPL (XRP & issued tokens like RLUSD): strict Payment validation, memo binding, replay protection, no paths/partials."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Naor Yuval" }]
+keywords = [
+  "x402",
+  "x402-v2",
+  "payment-protocol",
+  "http-402",
+  "payment-required",
+  "xrpl",
+  "xrp",
+  "rlusd",
+  "stablecoin",
+  "iou",
+  "issued-currency",
+  "settlement",
+  "settlement-verification",
+  "verifier",
+  "server",
+  "backend",
+  "middleware",
+  "receipt",
+  "replay-protection",
+  "xaman",
+  "xumm",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial",
+  "Intended Audience :: Developers",
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/naory/x402-xrpl-python#readme"
+Repository = "https://github.com/naory/x402-xrpl-python"
+Documentation = "https://github.com/naory/x402-xrpl-python#readme"
+"Bug Tracker" = "https://github.com/naory/x402-xrpl-python/issues"
 
 [project.optional-dependencies]
 dev = [
@@ -27,7 +67,7 @@ addopts = "-q"
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
