@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "x402-xrpl-settlement-adapter-py"
-version = "0.1.0"
+version = "0.1.1"
 description = "Server-side settlement verifier for x402 v2 on XRPL (XRP & issued tokens like RLUSD): strict Payment validation, memo binding, replay protection, no paths/partials."
 readme = "README.md"
 requires-python = ">=3.10"
